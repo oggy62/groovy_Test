@@ -31,6 +31,9 @@ pipeline {
         }
         stage('Deploy') {
             steps {
+                // git branch: 'main', url: 'https://github.com/oggy62/groovy_Test.git'
+                // sh 'echo "Commit ID: ${GIT_COMMIT}"'
+                sh "mvn -Drevision=${GIT_COMMIT} package"
                 script{
                     gv.deployApp()
                 }
