@@ -7,6 +7,5 @@ def testApp() {
 def deployApp() {
     echo 'Deploying the applcation....'
     echo "Deploying version ${params.VERSION}"
-    GIT_COMMIT_HASH = sh (script: "git log -n 1 --pretty=format:'%H'", returnStdout: true)
 }
 return this
