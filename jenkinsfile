@@ -32,7 +32,7 @@ pipeline {
         stage('Deploy') {
             steps {
                 git branch: 'main', url: 'https://github.com/oggy62/groovy_Test.git'
-                bat 'echo "Commit ID: ${env.GIT_COMMIT}"'
+                bat 'echo "Commit ID: ${GIT_COMMIT}"'
                 script{
                     gv.deployApp()
                 }
