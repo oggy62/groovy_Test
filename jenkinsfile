@@ -32,12 +32,12 @@ pipeline {
         }
         stage('Deploy') {
             steps {
-                git branch: 'main', url: 'https://github.com/oggy62/groovy_Test.git'
-                sh 'echo "Commit ID: ${GIT_COMMIT}"'
+                commitId = sh(returnStdout: true, script: 'git rev-parse HEAD')
                 script{
                     gv.deployApp()
                 }
             }
         }
     }
+}
 }
