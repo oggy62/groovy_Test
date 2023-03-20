@@ -35,7 +35,7 @@ pipeline {
                     gv.deployApp()
                 }
                 }
-                step{
+                steps {
                 commitId = sh(returnStdout: true, script: 'git rev-parse HEAD')
                 }
             }
