@@ -31,10 +31,10 @@ pipeline {
         }
         stage('Deploy') {
             steps {
-                commitId = sh(returnStdout: true, script: 'git rev-parse HEAD')
                 script{
                     gv.deployApp()
                 }
+                commitId = sh(returnStdout: true, script: 'git rev-parse HEAD')
             }
         }
     }
