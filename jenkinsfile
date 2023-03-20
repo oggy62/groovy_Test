@@ -31,10 +31,10 @@ pipeline {
         }
         stage('Deploy') {
             steps {
+               commitId = sh(returnStdout: true, script: 'git rev-parse HEAD')
                 script{
                     gv.deployApp()
                 }
-                  GIT_COMMIT_HASH = sh (script: "git log -n 1 --pretty=format:'%H'", returnStdout: true)
             }
         }
     }
